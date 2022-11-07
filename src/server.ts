@@ -23,6 +23,7 @@ fastify.get('/', async (request, reply) => {
 const start = async () => {
   try {
     await fastify.listen({ port: 3333 })
+    fastify.log.error('nada')
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
