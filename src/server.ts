@@ -9,24 +9,18 @@ import { guessRoutes } from './routes/guess'
 import { authRoutes } from './routes/auth'
 import { gameRoutes } from './routes/game'
 
-//Singleton 
+// Carrega o modulo HTTP do Node
+var http = require("http");
 
-// Require the framework and instantiate it
-const fastify = require('fastify')({ logger: true })
+// Cria um servidor HTTP e uma escuta de requisições para a porta 8000
+http.createServer(function(request, response) {
 
-// Declare a route
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
+  // Configura o cabeçalho da resposta com um status HTTP e um Tipo de Conteúdo
+   response.writeHead(200, {'Content-Type': 'text/plain'});
 
-// Run the server!
-const start = async () => {
-  try {
-    await fastify.listen({ port: 3333 })
-    fastify.log.error('nada')
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
-}
-start()
+   // Manda o corpo da resposta "Olá Mundo"
+   response.end('Olá Mundo\n');
+}).listen(3333, '127.0.0.1');
+
+// Imprime no console a URL de acesso ao servidor
+console.log('Servidor executando em http://127.0.0.1:3333/');
