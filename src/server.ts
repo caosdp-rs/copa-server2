@@ -9,18 +9,15 @@ import { guessRoutes } from './routes/guess'
 import { authRoutes } from './routes/auth'
 import { gameRoutes } from './routes/game'
 
-// Carrega o modulo HTTP do Node
-var http = require("http");
 
-// Cria um servidor HTTP e uma escuta de requisições para a porta 8000
-http.createServer(function(request, response) {
+const express = require('express')
+const app = express()
+const port = 3333
 
-  // Configura o cabeçalho da resposta com um status HTTP e um Tipo de Conteúdo
-   response.writeHead(200, {'Content-Type': 'text/plain'});
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-   // Manda o corpo da resposta "Olá Mundo"
-   response.end('Olá Mundo\n');
-}).listen(3333, '54.83.112.149');
-
-// Imprime no console a URL de acesso ao servidor
-console.log('Servidor executando em http://54.83.112.149:3333/');
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
