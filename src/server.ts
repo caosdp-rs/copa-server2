@@ -34,7 +34,7 @@ fastify.get('/', async (request, reply) => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen({ port: 3333, host: '54.83.112.149' })
+    await fastify.listen({ port: 3333, host: 'ip-172-31-18-111.ec2.internal' })
     console.log(`Example app listening on port ${port}`)
   } catch (err) {
     fastify.log.error(err)
