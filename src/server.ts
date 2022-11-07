@@ -10,14 +10,35 @@ import { authRoutes } from './routes/auth'
 import { gameRoutes } from './routes/game'
 
 
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
 const port = 3333
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
+
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
+
+
+// Require the framework and instantiate it
+const fastify = require('fastify')({ logger: true })
+
+// Declare a route
+fastify.get('/', async (request, reply) => {
+  return { hello: 'world' }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// Run the server!
+const start = async () => {
+  try {
+    await fastify.listen({ port: 3333 })
+    console.log(`Example app listening on port ${port}`)
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+}
+start()
