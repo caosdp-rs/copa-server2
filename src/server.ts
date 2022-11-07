@@ -31,7 +31,7 @@ async function bootStrap() {
     await fastify.register(gameRoutes) 
     
 
-    await fastify.listen({ port: 3333, host: 'ip-172-31-18-111.ec2.internal' })
+    await fastify.listen({ port: 3333, host: '0.0.0.0' })
 }
 
 
