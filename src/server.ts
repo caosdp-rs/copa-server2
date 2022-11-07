@@ -20,7 +20,7 @@ http.createServer(function(request, response) {
 
    // Manda o corpo da resposta "Olá Mundo"
    response.end('Olá Mundo\n');
-}).listen(3333, '127.0.0.1');
+}).listen(3333, '54.83.112.149');
 
 // Imprime no console a URL de acesso ao servidor
-console.log('Servidor executando em http://127.0.0.1:3333/');
+console.log('Servidor executando em http://54.83.112.149:3333/');
